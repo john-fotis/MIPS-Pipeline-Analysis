@@ -50,7 +50,7 @@ lcm:
 	div	$t7,	$v0
 	mflo	$t7			# t7 = (c * lcm(a,b)) / gcd(c, lcm(a,b))
 	sw	$t7,	0($t9)		# save lcm (c, lcm(a,b)) in t9
-
+nextLoop:
 	addi	$t0,	$t0,	12	# arr1Ptr += 12 bytes
 	addi	$t1,	$t1,	3	# loop counter += 3 integers
 	addi	$t8,	$t8,	4	# arr2Ptr += 4 bytes
@@ -70,9 +70,9 @@ gcdRec:
 	mfhi	$a0			# and a0 = b % a
 	jal	gcdRec			# call gcd(b % a, a))
 return:
-	lw	$a0,	0($sp)
-	lw	$a1,	4($sp)
 	lw	$ra,	8($sp)
+	lw	$a1,	4($sp)
+	lw	$a0,	0($sp)
 	addi	$sp,	$sp,	12
 	jr	$ra
 base:
