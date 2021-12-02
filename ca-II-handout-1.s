@@ -60,10 +60,10 @@ exit:
 	break
 
 gcdRec:
+	addi	$sp,	$sp,	-12	# push back the stack
 	sw	$a0,	0($sp)		# save current a
 	sw	$a1,	4($sp)		# save current b
 	sw	$ra,	8($sp)		# save return address
-	addi	$sp,	$sp,	-12	# push back the stack
 	beq	$a0,	$zero,	base	# if (a == 0) go to base-case
 	div	$a1,	$a0
 	add	$a1,	$a0,	$zero	# else a1 = a
