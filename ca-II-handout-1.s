@@ -71,7 +71,7 @@ gcdRec:
 	jal	gcdRec			# call gcd(b % a, a))
 return:
 	lw	$ra,	8($sp)		# retrieve current a
-	lw	$a1,	4($sp)		# retireve current b
+	lw	$a1,	4($sp)		# retrieve current b
 	lw	$a0,	0($sp)		# retrieve return address
 	addi	$sp,	$sp,	12	# pull up the stack
 	jr	$ra
