@@ -22,21 +22,21 @@ arr3: .space 264 # 66 integers
 main:
 	li	$t1,	0		# loop counter
 	li	$t2,	198		# total integers
-	la	$t0,	arr1
-	li	$t8,	arr2
-	li	$t9,	arr3
+	la	$t0,	arr1		# t0 = arr1Ptr
+	li	$t8,	arr2		# t8 = arr2Ptr
+	li	$t9,	arr3		# t9 = arr3Ptr
 while:
 	beq	$t1,	$t2,	exit	# if (t1 == 198) exit
 	lw	$t3,	0($t0)		# t3 = a
 	lw	$t4,	4($t0)		# t4 = b
 	lw	$t5,	8($t0)		# t5 = c
 gcd:
-	add	$a0,	$t3,	$zero
-	add	$a1,	$t4,	$zero
+	add	$a0,	$t3,	$zero	# a0 = a
+	add	$a1,	$t4,	$zero	# a1 = b
 	jal	gcdRec
 	add	$t6,	$v0,	$zero	# t6 = gcd(a,b)
-	add	$a0,	$t5,	$zero
-	add	$a1,	$v0,	$zero
+	add	$a0,	$t5,	$zero	# a0 = c
+	add	$a1,	$v0,	$zero	# a1 = gcd(a,b)
 	jal	gcdRec
 	sw	$v0,	0($t8)		# save gcd(c, gcd(a,b)) in t8
 lcm:
@@ -60,23 +60,23 @@ exit:
 	break
 
 gcdRec:
-	addi	$sp,	$sp,	-12
-	sw	$a0,	0($sp)		# a0 = a
-	sw	$a1,	4($sp)		# a1 = b
-	sw	$ra,	8($sp)
+	sw	$a0,	0($sp)		# save current a
+	sw	$a1,	4($sp)		# save current b
+	sw	$ra,	8($sp)		# save return address
+	addi	$sp,	$sp,	-12	# push back the stack
 	beq	$a0,	$zero,	base	# if (a == 0) go to base-case
 	div	$a1,	$a0
 	add	$a1,	$a0,	$zero	# else a1 = a
 	mfhi	$a0			# and a0 = b % a
 	jal	gcdRec			# call gcd(b % a, a))
 return:
-	lw	$ra,	8($sp)
-	lw	$a1,	4($sp)
-	lw	$a0,	0($sp)
-	addi	$sp,	$sp,	12
+	lw	$ra,	8($sp)		# retrieve current a
+	lw	$a1,	4($sp)		# retireve current b
+	lw	$a0,	0($sp)		# retrieve return address
+	addi	$sp,	$sp,	12	# pull up the stack
 	jr	$ra
 base:
-	add	$v0,	$a1,	$zero
+	add	$v0,	$a1,	$zero	# result = b
 	j	return
 
 .org 0x10000000
