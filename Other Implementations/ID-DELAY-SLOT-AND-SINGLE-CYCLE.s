@@ -70,7 +70,6 @@ gcdRec:
 	sw	$ra,	8($sp)		# save return address
 	beq	$a0,	$zero,	base	# if (a == 0) go to base-case
 	nop				# for ID delay slot & EX stall on branch and delay slot
-	nop				# for delay slot - EX ONLY
 	div	$a1,	$a0		# else b = b % a,
 	add	$a1,	$a0,	$zero	# a1 = a
 	mfhi	$a0			# a0 = b
