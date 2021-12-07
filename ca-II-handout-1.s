@@ -18,8 +18,8 @@ main:
 	li	$t9,	arr3		# t9 = arr3Ptr
 while:
 	beq	$t1,	$t2,	exit	# if (t1 == 198) exit
-	//nop				# for ID delay slot & EX stall on branch and delay slot
-	//nop				# for delay slot - EX ONLY
+	//nop				# for delay slot - Branch resolution @ ID or EX
+	//nop				# for delay slot - Branch resolution @ EX ONLY
 	lw	$t3,	0($t0)		# t3 = a
 	lw	$t4,	4($t0)		# t4 = b
 	lw	$t5,	8($t0)		# t5 = c
@@ -27,12 +27,12 @@ gcd:
 	add	$a0,	$t3,	$zero	# a0 = a
 	add	$a1,	$t4,	$zero	# a1 = b
 	jal	gcdRec
-	//nop				# for ID delay slot & EX stall on branch and delay slot - also for single cycle (?)
+	//nop				# for delay slot - Branch resolution @ ID or EX
 	add	$t6,	$v0,	$zero	# t6 = gcd(a,b)
 	add	$a0,	$t5,	$zero	# a0 = c
 	add	$a1,	$v0,	$zero	# a1 = gcd(a,b)
 	jal	gcdRec
-	//nop				# for ID delay slot & EX stall on branch and delay slot - also for single cycle (?)
+	//nop				# for delay slot - Branch resolution @ ID or EX
 	sw	$v0,	0($t8)		# save gcd(c, gcd(a,b)) in t8
 lcm:
 	mul	$t7,	$t3,	$t4	# t7 = a * b
@@ -41,8 +41,7 @@ lcm:
 	add	$a0,	$t5,	$zero	# a0 = c
 	add	$a1,	$t7,	$zero	# a1 = lcm(a,b)
 	jal	gcdRec
-	//nop				# for ID delay slot & EX stall on branch and delay slot - also for single cycle (?)
-	//nop				# for delay slot - EX ONLY
+	//nop				# for delay slot - Branch resolution @ ID or EX
 	mul	$t7,	$t5,	$t7	# t7 = c * lcm(a,b)
 	div	$t7,	$v0
 	mflo	$t7			# t7 = (c * lcm(a,b)) / gcd(c, lcm(a,b))
@@ -53,8 +52,7 @@ nextLoop:
 	addi	$t8,	$t8,	4	# arr2Ptr += 4 bytes
 	addi	$t9,	$t9,	4	# arr3Ptr += 4 bytes
 	j	while
-	//nop				# for ID delay slot & EX stall on branch and delay slot
-	//nop				# for delay slot - EX ONLY
+	//nop				# for delay slot - Branch resolution @ ID or EX
 exit:
 	break
 
@@ -64,23 +62,23 @@ gcdRec:
 	sw	$a1,	4($sp)		# save current b
 	sw	$ra,	8($sp)		# save return address
 	beq	$a0,	$zero,	base	# if (a == 0) go to base-case
-	//nop				# for ID delay slot & EX stall on branch and delay slot
-	//nop				# for delay slot - EX ONLY
+	//nop				# for delay slot - Branch resolution @ ID or EX
+	//nop				# for delay slot - Branch resolution @ EX ONLY
 	div	$a1,	$a0		# else b = b % a,
 	add	$a1,	$a0,	$zero	# a1 = a
 	mfhi	$a0			# a0 = b
 	jal	gcdRec			# call gcd(b % a, a))
-	//nop				# for ID delay slot & EX stall on branch and delay slot - also for single cycle (?)
+	//nop				# for delay slot - Branch resolution @ ID or EX
 return:
 	lw	$ra,	8($sp)		# retrieve current a
 	lw	$a1,	4($sp)		# retrieve current b
 	lw	$a0,	0($sp)		# retrieve return address
 	addi	$sp,	$sp,	12	# pull up the stack
 	jr	$ra
-	//nop				# for ID delay slot & EX stall on branch and delay slot
-	//nop				# for delay slot - EX ONLY
+	//nop				# for delay slot - Branch resolution @ ID or EX
 base:
 	add	$v0,	$a1,	$zero	# result = b
 	j	return
+	//nop				# for delay slot - Branch resolution @ ID or EX
 
 .org 0x10000000
