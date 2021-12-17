@@ -1,9 +1,6 @@
-# ================ Description ================ #
-# This program calculates the gcd and lcm of 3
-# random numbers in a 198 positive, < 99 integer
-# array. The calculation is made on consequtive
-# pairs of the array and is using a recursive
-# implementation:
+# ========================================== Description ========================================== #
+# This program calculates the gcd and lcm of 3 random numbers in a 198 positive, < 99 integer, array.
+# The calculation is made on consequtive pairs of the array and is using a recursive implementation:
 # gcd(a, b, c) = gcd(gcd(a, b), c)
 # lcm(a, b ,c) = lcm(a, b) * c) / gcd(lcm(a,b), c)
 
