@@ -70,9 +70,9 @@ gcdRec:
 	jal	gcdRec			# call gcd(b % a, a))
 	nop				# needed for delay slot
 return:
-	lw	$ra,	8($sp)		# retrieve current a
+	lw	$ra,	8($sp)		# retrieve return address
 	lw	$a1,	4($sp)		# retrieve current b
-	lw	$a0,	0($sp)		# retrieve return address
+	lw	$a0,	0($sp)		# retrieve current a
 	addi	$sp,	$sp,	12	# pull up the stack
 	jr	$ra
 	nop				# needed for delay slot
