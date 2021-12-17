@@ -1,6 +1,6 @@
-#		Description		#
+#		Description			#
 # This program calculates the gcd and lcm of 3	#
-# random numbers in a 198 positive, < 99 integer	#
+# random numbers in a 198 positive, < 99 integer#
 # array. The calculation is made on consequtive	#
 # pairs of the array and is using a recursive	#
 # implementation:				#
@@ -9,7 +9,7 @@
 
 .data
 swap: .space 2048				# to avoid reading program memory
-arr1:					# 198-integer array for input data
+arr1:						# 198-integer array for input data
 .word 31,91,58,27,77,56,3,90,58,57,6,33,20,9,2,57,29,38,6,68,8,56,5,33,24,55,90,59,23,82,64,51,24,46,54,65,43,71,24,99,97,61,76,37,84,12,33,79,6,61,54,77,69,10,37,22,21,45,37,5,11,29,66,20,90,16,88,9,13,38,78,84,64,93,22,6,45,40,84,74,16,20,35,43,87,21,78,97,41,94,13,92,53,34,87,21,85,25,87,13,59,36,47,5,29,36,6,2,88,3,59,71,44,3,29,30,48,79,35,43,20,95,40,40,64,36,26,25,39,37,41,99,1,84,66,19,38,85,7,55,70,34,86,40,50,94,51,27,55,29,92,97,81,72,34,35,88,38,82,47,32,80,41,72,24,88,40,6,75,7,71,89,9,9,41,69,55,90,99,85,42,28,7,32,53,55,79,47,8,81,37,31,35,9,23,63,86,66
 arr2: .space 264				# 66-integer array for gcd results
 arr3: .space 264				# 66-integer array for lcm results
