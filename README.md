@@ -11,7 +11,7 @@
   
   <h2> Detailed Description: </h2>
   
-  Develop a MIPS programm that calculates the [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) and [LCM](https://www.calculatorsoup.com/calculators/math/lcm.php) of three positive integers. This process will be applied in an array of 198 random numbers [1,127] which will be considered as consequtive pairs of 3. The results of each set must be then stored in 2 appropriate sized arrays. The array will be initialized in the programm's memory and its content is not to be read or printed in the console, since we want to compare only the CPU times needed for each implementation. Find out which implementation brings the best value for the cost by testing your code.
+  Develop a MIPS programm that calculates the [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) and [LCM](https://en.wikipedia.org/wiki/Least_common_multiple) of three positive integers. This process will be applied in an array of 198 random numbers [1,99] which will be considered as consequtive pairs of 3. The results of each set must be then stored in 2 appropriate sized arrays. The array will be initialized in the programm's memory and its content is not to be read or printed in the console, since we want to compare only the CPU times needed for each implementation. Find out which implementation brings the best value for the cost by testing your code.
   
   <h2> Constraints: </h2>
   
@@ -28,7 +28,7 @@
   
   <h2> Results: </h2>
   
-  ***We consider that the base chip should at least implement the Data and the Control Hazzard Unit at their simplest form***
+  ***Let the base chip include at least the Data and the Control Hazzard Unit at their simplest form to be considered a viable implementation. Let C be the chip cost and T the period of its clock. With these assumptions we conclude to the following:***
   
   |                 | CPU 0    | CPU 1    | CPU 2    | CPU 3    | CPU 4    | CPU 5    | CPU 6    | CPU 7    | CPU 8    |
   | :-------------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
@@ -145,7 +145,7 @@
 
   <h2> Comments: </h2>
   
-  Although CPU 8 won in terms of speed, it turned out to have a worse value ratio compared to CPU 7. You can see the complete set of tests we ran in [ImplementationStatistics.xlsx](https://github.com/john-fotis/MIPS-Pipeline-Analysis/blob/main/Implementation%20Statistics.xlsx). The results came out from [these Datasets](https://github.com/john-fotis/MIPS-Pipeline-Analysis/tree/main/Datasets). You can try them out by simply pasting theme in $arr1 of [ca-II-handout-1.s](https://github.com/john-fotis/MIPS-Pipeline-Analysis/blob/main/ca-II-handout-1.s) or generate your own sets.
+  Although CPU 8 won in terms of speed and cycle-efficiency, it turned out that CPU7 has the best value ratio overall, even by a slight margin. You can see the complete set of tests we ran in [ImplementationStatistics.xlsx](https://github.com/john-fotis/MIPS-Pipeline-Analysis/blob/main/Implementation%20Statistics.xlsx). The results came out from [these Datasets](https://github.com/john-fotis/MIPS-Pipeline-Analysis/tree/main/Datasets). You can try them out by simply pasting theme in $arr1 of [ca-II-handout-1.s](https://github.com/john-fotis/MIPS-Pipeline-Analysis/blob/main/ca-II-handout-1.s) or generate your own sets.
   
   <h2> Contributors: </h2>
   
