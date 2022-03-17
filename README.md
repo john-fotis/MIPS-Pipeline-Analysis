@@ -11,24 +11,24 @@
   
   <h2> Detailed Description: </h2>
   
-  Develop a MIPS programm that calculates the [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) and [LCM](https://en.wikipedia.org/wiki/Least_common_multiple) of three positive integers. This process will be applied in an array of 198 random numbers [1,99] which will be considered as consequtive pairs of 3. The results of each set must be then stored in 2 appropriate sized arrays. The array will be initialized in the programm's memory and its content is not to be read or printed in the console, since we want to compare only the CPU times needed for each implementation. Find out which implementation brings the best value for the cost by testing your code.
+  Develop a MIPS program that calculates the [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor) and [LCM](https://en.wikipedia.org/wiki/Least_common_multiple) of three positive integers. This process will be applied in an array of 198 random numbers [1,99] which will be considered as consecutive pairs of 3. The results of each set must be then stored in 2 appropriate sized arrays. The array will be initialized in the program's memory and its content is not to be read or printed in the console, since we want to compare only the CPU times needed for each implementation. Find out which implementation brings the best value for the cost by testing your code.
   
   <h2> Constraints: </h2>
   
   | Parameter         | Extra Cost         | Clock overhead     |
   | :---------------: | :----------------: | :----------------: |
-  | Ignore Data hazzards                            | +0% | +0% |
-  | Detect Data hazzards and stall                  | +2% | +0% |
-  | Detect Data hazzards and forward                | +5% | +3% |
-  | Ignore Control hazzards and use Delay Slot      | +0% | +0% |
-  | Detect Control hazzards and stall               | +2% | +0% |
+  | Ignore Data hazards                            | +0% | +0% |
+  | Detect Data hazards and stall                  | +2% | +0% |
+  | Detect Data hazards and forward                | +5% | +3% |
+  | Ignore Control hazards and use Delay Slot      | +0% | +0% |
+  | Detect Control hazards and stall               | +2% | +0% |
   | Use 1-bit Branch Predictor with 6-bit BHT       | +7% | +1% |
   | Use 2-bit Branch Predictor with 6-bit BHT       | +8% | +2% |
   | Use Branch resolution in ID stage instead of EX | +1% | +0% |
   
   <h2> Results: </h2>
   
-  ***Let the base chip include at least the Data and the Control Hazzard Unit at their simplest form to be considered a viable implementation. Let C be the chip cost and T the period of its clock. With these assumptions we conclude to the following:***
+  ***Let the base chip include at least the Data and the Control Hazard Unit at their simplest form to be considered a viable implementation. Let C be the chip cost and T the period of its clock. With these assumptions we conclude to the following:***
   
   |                 | CPU 0    | CPU 1    | CPU 2    | CPU 3    | CPU 4    | CPU 5    | CPU 6    | CPU 7    | CPU 8    |
   | :-------------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
@@ -42,11 +42,11 @@
     
   <strong>Best Implementation: ***CPU 7***</strong>
   
-  - [ ] Ignore Data hazzards
-  - [X] Detect Data hazzards and stall
-  - [ ] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [X] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [X] Detect Data hazards and stall
+  - [ ] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [X] Detect Control hazards and stall
   - [X] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [ ] Use Branch resolution in ID stage instead of EX
@@ -54,91 +54,91 @@
   Tested Implementation Details:
   
   * CPU 0
-  - [ ] Ignore Data hazzards
-  - [X] Detect Data hazzards and stall
-  - [ ] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [X] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [X] Detect Data hazards and stall
+  - [ ] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [X] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 1
-  - [ ] Ignore Data hazzards
-  - [ ] Detect Data hazzards and stall
-  - [X] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [X] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [ ] Detect Data hazards and stall
+  - [X] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [X] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 2
-  - [ ] Ignore Data hazzards
-  - [ ] Detect Data hazzards and stall
-  - [X] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [ ] Detect Data hazards and stall
+  - [X] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [X] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 3
-  - [ ] Ignore Data hazzards
-  - [X] Detect Data hazzards and stall
-  - [ ] Detect Data hazzards and forward
-  - [X] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [X] Detect Data hazards and stall
+  - [ ] Detect Data hazards and forward
+  - [X] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 4
-  - [ ] Ignore Data hazzards
-  - [X] Detect Data hazzards and stall
-  - [ ] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [X] Detect Data hazards and stall
+  - [ ] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [X] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 5
-  - [ ] Ignore Data hazzards
-  - [X] Detect Data hazzards and stall
-  - [ ] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [X] Detect Data hazards and stall
+  - [ ] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [X] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 6
-  - [ ] Ignore Data hazzards
-  - [ ] Detect Data hazzards and stall
-  - [X] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [X] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [ ] Detect Data hazards and stall
+  - [X] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [X] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 7
-  - [ ] Ignore Data hazzards
-  - [ ] Detect Data hazzards and stall
-  - [X] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [ ] Detect Data hazards and stall
+  - [X] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [X] Use 1-bit Branch Predictor with 6-bit BHT
   - [ ] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX
 
   * CPU 8
-  - [ ] Ignore Data hazzards
-  - [ ] Detect Data hazzards and stall
-  - [X] Detect Data hazzards and forward
-  - [ ] Ignore Control hazzards and use Delay Slot
-  - [ ] Detect Control hazzards and stall
+  - [ ] Ignore Data hazards
+  - [ ] Detect Data hazards and stall
+  - [X] Detect Data hazards and forward
+  - [ ] Ignore Control hazards and use Delay Slot
+  - [ ] Detect Control hazards and stall
   - [ ] Use 1-bit Branch Predictor with 6-bit BHT
   - [X] Use 2-bit Branch Predictor with 6-bit BHT
   - [X] Use Branch resolution in ID stage instead of EX 
